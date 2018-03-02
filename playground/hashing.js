@@ -1,15 +1,30 @@
 const {SHA256} = require('crypto-js');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-var data = {
-  id: 1729
-}
+var password = 'One/2pilogt';
 
-var token = jwt.sign(data, 'NaCl');
-console.log(token);
+// bcrypt.genSalt(10, (err, salt) => {
+//   bcrypt.hash(password, salt, (err, hash) =>{
+//     console.log(hash);
+//   });
+// });
 
-var decoded = jwt.verify(token, 'NaCl');
-console.log(decoded);
+var hashedPassword = '$2a$10$saiNCUQD1OOPs54ll5IMtOiqpuIEx3qSUA.l550Bm6bEsOmHdCecy';
+
+bcrypt.compare(password, hashedPassword, (err, res) => {
+  console.log(res);
+});
+
+// var data = {
+//   id: 1729
+// }
+//
+// var token = jwt.sign(data, 'NaCl');
+// console.log(token);
+//
+// var decoded = jwt.verify(token, 'NaCl');
+// console.log(decoded);
 
 
 // var message = 'You are Number 6';
