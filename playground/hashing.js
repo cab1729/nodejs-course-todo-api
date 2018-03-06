@@ -2,7 +2,7 @@ const {SHA256} = require('crypto-js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-var password = 'One/2pilogt';
+var password = 'basicallyrun';
 
 // bcrypt.genSalt(10, (err, salt) => {
 //   bcrypt.hash(password, salt, (err, hash) =>{
@@ -10,7 +10,7 @@ var password = 'One/2pilogt';
 //   });
 // });
 
-var hashedPassword = '$2a$10$saiNCUQD1OOPs54ll5IMtOiqpuIEx3qSUA.l550Bm6bEsOmHdCecy';
+var hashedPassword = '$2a$10$2IXGxRsyqcYB4tRuVojD/Ou7xHjGpDo0xUyoG9pitbsHwVOgUyvAO';
 
 bcrypt.compare(password, hashedPassword, (err, res) => {
   console.log(res);
