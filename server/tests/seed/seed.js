@@ -18,17 +18,23 @@ const users = [{
 }, {
   _id: userTwoId,
   email: 'davros@exterminate.com',
-  password: 'userTwoPass'
+  password: 'userTwoPass',
+  tokens: [{
+    access: 'auth',
+    token: jwt.sign({_id: userTwoId, access: 'auth'}, 'NaCl').toString()
+  }]
 }];
 
 const todos = [{
   _id: new ObjectID(),
-  text: 'Hello I\'m The Doctor'
+  text: 'Hello I\'m The Doctor',
+  _ownerID: userOneId
 }, {
   _id: new ObjectID(),
   text: 'Basically... run',
   completed: true,
-  completedAt: 333
+  completedAt: 333,
+  _ownerID: userTwoId
 }];
 
 const populateTodos = function (done) {
